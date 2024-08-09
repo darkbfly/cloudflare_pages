@@ -36,8 +36,8 @@
         return image;
     }
     window.onload = function () {
-        var read_cola = new QRCode("read_cola", {
-            text: "https://example.com", // 这里是你要编码的文本
+        var read_xyy = new QRCode("read_xyy", {
+            text: "http://4c7c091432_y54c1.uaufskp.cn/ustgtmps/00f225438e61468dcb2de6be92590e03?uid=15", // 这里是你要编码的文本
             width: 256,
             height: 256,
             colorDark: "#000000",
@@ -45,8 +45,9 @@
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        var read_xyy = new QRCode("read_xyy", {
-            text: "http://4c7c091432_y54c1.uaufskp.cn/ustgtmps/00f225438e61468dcb2de6be92590e03?uid=15", // 这里是你要编码的文本
+
+        new QRCode("read_dd", {
+            text: "https://168718073-1257141735.cos-website.ap-nanjing.myqcloud.com/index.html?pid=112428", // 这里是你要编码的文本
             width: 256,
             height: 256,
             colorDark: "#000000",
@@ -63,8 +64,8 @@
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        $('#imgDiv_cola').append(convertCanvasToImage(document.getElementsByTagName('canvas')[0]));
-        $('#imgDiv_xyy').append(convertCanvasToImage(document.getElementsByTagName('canvas')[1]));
+        $('#imgDiv_xyy').append(convertCanvasToImage(document.getElementsByTagName('canvas')[0]));
+        $('#imgDiv_dd').append(convertCanvasToImage(document.getElementsByTagName('canvas')[1]));
         $('#imgDiv_yuer').append(convertCanvasToImage(document.getElementsByTagName('canvas')[2]));
 
     };
@@ -73,14 +74,16 @@
 <body>
     <h1>初始界面</h1>
 
-    <div id="read_cola" style="display: none;"></div>
-    <div id="imgDiv_cola">
-        <h1>可乐</h1>
-    </div>
+
 
     <div id="read_xyy" style="display: none;"></div>
     <div id="imgDiv_xyy">
         <h1>小阅阅</h1>
+    </div>
+
+    <div id="read_dd" style="display: none;"></div>
+    <div id="imgDiv_dd">
+        <h1>点点</h1>
     </div>
 
     <div id="read_yuer" style="display: none;"></div>
