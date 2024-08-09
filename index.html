@@ -54,28 +54,38 @@
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        var img = convertCanvasToImage(document.getElementsByTagName('canvas')[0]);
-        $('#imgDiv_cola').append(img);//imgDiv表示你要插入的容器id
-        var img = convertCanvasToImage(document.getElementsByTagName('canvas')[1]);
-        $('#imgDiv_xyy').append(img);//imgDiv表示你要插入的容器id
+        new QRCode("read_yuer", {
+            text: "https://ye-042.obs.cn-jxnc1.ctyun.cn/index.html?upuid=2910882", // 这里是你要编码的文本
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        $('#imgDiv_cola').append(convertCanvasToImage(document.getElementsByTagName('canvas')[0]));
+        $('#imgDiv_xyy').append(convertCanvasToImage(document.getElementsByTagName('canvas')[1]));
+        $('#imgDiv_yuer').append(convertCanvasToImage(document.getElementsByTagName('canvas')[2]));
+
     };
 </script>
 
 <body>
     <h1>初始界面</h1>
 
-    <!--canvas中的二维码-->
     <div id="read_cola" style="display: none;"></div>
-    <!--image形式的二维码-->
     <div id="imgDiv_cola">
         <h1>可乐</h1>
     </div>
 
-    <!--canvas中的二维码-->
     <div id="read_xyy" style="display: none;"></div>
-    <!--image形式的二维码-->
     <div id="imgDiv_xyy">
         <h1>小阅阅</h1>
+    </div>
+
+    <div id="read_yuer" style="display: none;"></div>
+    <div id="imgDiv_yuer">
+        <h1>鱼儿</h1>
     </div>
 </body>
 
