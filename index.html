@@ -64,9 +64,20 @@
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        $('#imgDiv_xyy').append(convertCanvasToImage(document.getElementsByTagName('canvas')[0]));
-        $('#imgDiv_dd').append(convertCanvasToImage(document.getElementsByTagName('canvas')[1]));
-        $('#imgDiv_yuer').append(convertCanvasToImage(document.getElementsByTagName('canvas')[2]));
+        new QRCode("read_maomao", {
+            text: "http://dd6611616iueba.7p0d8.cn/kstief/b498c2cb6f0f825d22a3ff043cdcb058?tsd=689", // 这里是你要编码的文本
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        i = 0
+        $('#imgDiv_xyy').append(convertCanvasToImage(document.getElementsByTagName('canvas')[i++]));
+        $('#imgDiv_maomao').append(convertCanvasToImage(document.getElementsByTagName('canvas')[i++]));
+        $('#imgDiv_dd').append(convertCanvasToImage(document.getElementsByTagName('canvas')[i++]));
+        $('#imgDiv_yuer').append(convertCanvasToImage(document.getElementsByTagName('canvas')[i++]));
 
     };
 </script>
@@ -79,6 +90,11 @@
     <div id="read_xyy" style="display: none;"></div>
     <div id="imgDiv_xyy">
         <h1>小阅阅</h1>
+    </div>
+
+    <div id="read_maomao" style="display: none;"></div>
+    <div id="imgDiv_maomao">
+        <h1>猫猫</h1>
     </div>
 
     <div id="read_dd" style="display: none;"></div>
