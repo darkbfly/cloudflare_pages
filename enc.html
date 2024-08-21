@@ -9,6 +9,11 @@
         .my-textarea {
             width: 500px;
         }
+
+        .my-btn {
+            width: 100px;
+            height: 50px;
+        }
     </style>
 </head>
 <script>
@@ -56,8 +61,10 @@
     <label>解密数据</label>
     <br>
     <textarea class="my-textarea" id="dec-area" name="dec-area" rows="20"></textarea>
-    <button onclick="clickEnc()">加密数据</button>
-    <button onclick="clickDec()">解密数据</button>
+    <br>
+    <br>
+    <button onclick="clickEnc()" class="my-btn">加密数据</button>
+    <button onclick="clickDec()" class="my-btn">解密数据</button>
 </body>
 
 </html>
