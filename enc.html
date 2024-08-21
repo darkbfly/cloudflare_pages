@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="gbk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my-textarea {
+            width: 500px;
+        }
+    </style>
+</head>
+<script>
+    function encData(strData) {
+        let array = [];
+        for (let i = 0; i < strData.length; i++) {
+            array.push(256 - (strData.charCodeAt(i) % 256));
+        }
+        return btoa(String.fromCharCode(...array));
+    }
+
+    function gbkToUtf8(str) {
+        return unescape(encodeURIComponent(str));
+    }
+
+    function decData(strData) {
+        let array = atob(strData).split('').map(c => 256 - (c.charCodeAt(0) % 256));
+        let gbkDecodedStr;
+
+        // 使用GBK解码
+        try {
+            return new TextDecoder('utf-8').decode(new Uint8Array(array));
+        } catch (err) {
+            console.error("GBK decoding failed.");
+            return "GBK Decoding failed!";
+        }
+    }
+
+    function clickEnc() {
+        const strData = document.getElementById('dec-area').value;
+        document.getElementById('enc-area').value = encData(strData);
+    }
+
+    function clickDec() {
+        const strData = document.getElementById('enc-area').value;
+        document.getElementById('dec-area').value = decData(strData);
+    }
+</script>
+
+<body>
+    <label>加密数据</label>
+    <br>
+    <textarea class="my-textarea" id="enc-area" name="enc-area" rows="20"></textarea>
+    <br>
+    <label>解密数据</label>
+    <br>
+    <textarea class="my-textarea" id="dec-area" name="dec-area" rows="20"></textarea>
+    <button onclick="clickEnc()">加密数据</button>
+    <button onclick="clickDec()">解密数据</button>
+</body>
+
+</html>
