@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="gbk">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
@@ -28,7 +28,7 @@
         let array = atob(strData).split('').map(c => 256 - (c.charCodeAt(0) % 256));
         let gbkDecodedStr;
 
-        // 使用GBK解码
+        // 浣跨敤GBK瑙ｇ爜
         try {
             return new TextDecoder('utf-8').decode(new Uint8Array(array));
         } catch (err) {
@@ -49,15 +49,15 @@
 </script>
 
 <body>
-    <label>加密数据</label>
+    <label>鍔犲瘑鏁版嵁</label>
     <br>
     <textarea class="my-textarea" id="enc-area" name="enc-area" rows="20"></textarea>
     <br>
-    <label>解密数据</label>
+    <label>瑙ｅ瘑鏁版嵁</label>
     <br>
     <textarea class="my-textarea" id="dec-area" name="dec-area" rows="20"></textarea>
-    <button onclick="clickEnc()">加密数据</button>
-    <button onclick="clickDec()">解密数据</button>
+    <button onclick="clickEnc()">鍔犲瘑鏁版嵁</button>
+    <button onclick="clickDec()">瑙ｅ瘑鏁版嵁</button>
 </body>
 
 </html>
